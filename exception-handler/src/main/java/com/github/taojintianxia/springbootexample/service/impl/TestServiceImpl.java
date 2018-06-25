@@ -1,9 +1,8 @@
 package com.github.taojintianxia.springbootexample.service.impl;
 
+import com.github.taojintianxia.springbootexample.exception.CustomizedException;
 import com.github.taojintianxia.springbootexample.service.TestService;
 import org.springframework.stereotype.Service;
-
-import java.util.Random;
 
 /**
  * @author Nianjun Sun
@@ -13,7 +12,12 @@ import java.util.Random;
 @Service
 public class TestServiceImpl implements TestService {
     @Override
-    public Integer getFirstUser() {
-        return new Random().nextInt();
+    public Integer getFirstUser() throws Exception {
+        throw new Exception("this is exception");
+    }
+
+    @Override
+    public Integer getLastUser() throws CustomizedException {
+        throw new CustomizedException("this is customized exception");
     }
 }
