@@ -9,6 +9,7 @@
     <modules>
         <module>banner</module>
 		<module>exception-handler</module>
+		<module>request-validation</module>
 	</modules>
     <packaging>pom</packaging>
 
