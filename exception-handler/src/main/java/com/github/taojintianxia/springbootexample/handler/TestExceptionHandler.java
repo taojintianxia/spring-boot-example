@@ -4,7 +4,10 @@ import com.github.taojintianxia.springbootexample.constants.response.R;
 import com.github.taojintianxia.springbootexample.exception.CustomizedException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import java.sql.SQLException;
 
 /**
  * @author Nianjun Sun
@@ -28,4 +31,8 @@ public class TestExceptionHandler {
         return R.error(e.getLocalizedMessage());
     }
 
+    @ResponseStatus(value = HttpStatus.CONFLICT, reason = "Data integrity violation")
+    @ExceptionHandler(SQLException.class)
+    public void doNothing() {
+    }
 }
